@@ -102,6 +102,9 @@ class BasicDigestAuthHandler(
 
             basicAuth = newBasicAuth
             digestAuth = newDigestAuth
+            clientNonce = h(UUID.randomUUID().toString())
+            nonceCount = AtomicInteger(1)
+
         }
 
         // we MUST prefer Digest auth [https://tools.ietf.org/html/rfc2617#section-4.6]
